@@ -177,6 +177,31 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.2);
         }
+        .keybindings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .keybinding-card {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .key-combo {
+            background: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            border: 1px solid var(--primary);
+            white-space: nowrap;
+        }
         
         @media (max-width: 768px) {
             .logo {
@@ -301,6 +326,33 @@ brew install ncurses</code>
                 B > F[Mobile/Termux]
                 </pre>
             </div>-->
+            <section>
+        <h2>⌨️ Key Bindings</h2>
+        <div class="keybindings">
+            <div class="keybinding-card">
+                <div class="key-combo">F5</div>
+                <div>Compile and run current file immediately</div>
+            </div>
+            <div class="keybinding-card">
+                <div class="key-combo">F2</div>
+                <div>Save current file</div>
+            </div>
+            <div class="keybinding-card">
+                <div class="key-combo">Ctrl+X</div>
+                <div>Exit the editor (no prompt)</div>
+            </div>
+            <div class="keybinding-card">
+                <div class="key-combo">Arrow Keys</div>
+                <div>Navigate through code</div>
+            </div>
+        </div>
+        
+        <div class="code-block">
+            <code>// F5 executes exactly:
+// g++ current_file.cpp -o a.out && ./a.out
+// Then waits for you to press Enter to continue</code>
+        </div>
+    </section>
             
             <div class="platform-cards">
                 <div class="platform-card">
@@ -350,6 +402,9 @@ brew install ncurses</code>
                 card.style.opacity = 0;
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'all 0.5s ease';
+                 document.querySelectorAll('.keybinding-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 100}ms`;
+        });
                 observer.observe(card);
             });
         });
