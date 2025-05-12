@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 AOI Editor - Lightning-Fast Competitive Programming Editor</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fira Code', monospace, system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .screenshot {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin: 0 auto;
+            display: block;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .screenshot:hover {
+            transform: translateY(-5px);
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            background: rgba(30, 41, 59, 0.7);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .feature-card {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .code-block {
+            background: #0f172a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .code-block code {
+            display: block;
+            white-space: pre;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+        }
+        
+        .diagram {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #0f172a;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .platform-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .platform-card {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 200px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo floating">🚀 AOI Editor</h1>
+            <p class="tagline">A minimalist, terminal-based code editor optimized for competitive programming contests</p>
+            <img src="screenshot.png" alt="AOI Editor Screenshot" class="screenshot">
+        </header>
+        
+        <section>
+            <h2>✨ Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>⚡ Blazing Fast</h3>
+                    <p>No GUI overhead, pure terminal power with ncurses for maximum performance during competitions</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Smart C++ Highlighting</h3>
+                    <p>50+ keywords with 6 color groups for optimal code readability</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔧 One-Key Compilation</h3>
+                    <p>F5 to compile & run - no more switching between windows</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🚀 Zero Config</h3>
+                    <p>Works out of the box with sensible defaults for competitive programming</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 &lt;1MB Memory</h3>
+                    <p>Lightweight even on old machines and cloud instances</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⌨️ Vim-like Navigation</h3>
+                    <p>Efficient keyboard shortcuts for rapid coding</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>⚡ Quick Start</h2>
+            <div class="code-block">
+                <code># Clone & Build
+git clone https://github.com/mohamedboukerche22/AOI-IDE.git
+cd AOI-IDE
+make
+
+# Run with:
+sudo ./aoi solution.cpp</code>
+            </div>
+            
+            <div class="code-block">
+                <code>// Special optimizations for CP
+#include &lt;bits/stdc++.h&gt;  // ← Detected and highlighted
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);  // ← Competitive pattern recognized
+    cin.tie(nullptr);
+    
+    // Fast I/O template
+    int n;
+    cin >> n;
+    cout << n*2 << '\n';  // ← '\n' highlighted over endl
+}</code>
+            </div>
+            
+            <a href="#installation" class="btn">Get Started</a>
+        </section>
+        
+        <section id="installation">
+            <h2>📦 Installation</h2>
+            <h3>Linux/macOS</h3>
+            <div class="code-block">
+                <code># Ubuntu/Debian
+sudo apt install g++ libncurses-dev
+
+# Fedora
+sudo dnf install gcc-c++ ncurses-devel
+
+# macOS (Homebrew)
+brew install ncurses</code>
+            </div>
+            
+            <h3>Compile & Run</h3>
+            <div class="code-block">
+                <code>g++ aoi.cpp -o aoi -lncurses
+./aoi yourcode.cpp</code>
+            </div>
+        </section>
+        
+        <section>
+            <h2>🌐 Cross-Platform Architecture</h2>
+            <div class="diagram">
+                <pre>
+                A[Core C++ Engine] --> B[Platform-Specific Adapters]
+                B --> C[Linux/ncurses]
+                B --> D[Windows/PDCurses]
+                B --> E[Web/Emscripten]
+                B --> F[Mobile/Termux]
+                </pre>
+            </div>
+            
+            <div class="platform-cards">
+                <div class="platform-card">
+                    <h3>🐧 Linux</h3>
+                    <p>Native ncurses support</p>
+                </div>
+                <div class="platform-card">
+                    <h3>🪟 Windows</h3>
+                    <p>Via PDCurses</p>
+                </div>
+                <div class="platform-card">
+                    <h3>🌐 Web</h3>
+                    <p>Emscripten-compiled WASM</p>
+                </div>
+                <div class="platform-card">
+                    <h3>📱 Mobile</h3>
+                    <p>Termux on Android</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Add interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Animate feature cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.feature-card, .platform-card').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
